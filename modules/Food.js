@@ -1,4 +1,4 @@
-import { ctx, canvas, bubbleRadius, wallDisplacement }  from './globals.js';
+import { ctx, canvas, bubbleRadius }  from './globals.js';
 
 class Food {
   constructor() {
@@ -9,13 +9,13 @@ class Food {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, bubbleRadius, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = '#ffb400';
     ctx.fill();
   }
 
   changePosition() {
-    this.x = wallDisplacement + bubbleRadius + (canvas.width - 2 * (wallDisplacement + bubbleRadius)) * Math.random();
-    this.y = wallDisplacement + bubbleRadius + (canvas.height - 2 * (wallDisplacement + bubbleRadius)) * Math.random();
+    this.x = bubbleRadius + (canvas.width - 2 * bubbleRadius) * Math.random();
+    this.y = bubbleRadius + (canvas.height - 2 * bubbleRadius) * Math.random();
   }
 }
 

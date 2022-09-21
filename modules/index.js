@@ -1,6 +1,6 @@
 import Snake from './Snake.js';
 import Food from './Food.js';
-import { ctx, canvas, fps, bubbleRadius, wallDisplacement } from './globals.js';
+import { ctx, canvas, fps, bubbleRadius } from './globals.js';
 
 let snake;
 const food = new Food();
@@ -17,7 +17,7 @@ setInterval(() => {
   ctx.strokeStyle = 'gray';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.rect(wallDisplacement, wallDisplacement, canvas.width - 2 * wallDisplacement, canvas.height - 2 * wallDisplacement);
+  ctx.rect(0, 0, canvas.width, canvas.height);
   ctx.stroke();
 
   if(snake.checkSelfCollision() || snake.checkWallCollision()) {

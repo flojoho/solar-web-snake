@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  display: flex;
+}
+
+main {
+  margin: 16px;
+  display: grid;
+  grid-template-columns: 100px 500px 100px;
+  grid-template-rows: 100px 500px 100px;
+}
+
+main > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main > div > img {
+  width: 80px;
+  height: 80px;
+}

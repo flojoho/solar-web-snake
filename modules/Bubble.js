@@ -1,5 +1,8 @@
-import { bubbleRadius, bubbleDistance, fps, snakeSpeed } from './globals.js';
+import { bubbleRadius, snakeSpeed } from './globals.js';
 import { ctx }  from './globals.js';
+
+const icon = new Image();
+icon.src = '../fronius_favicon.svg';
 
 class Bubble {
   constructor(x, y) {
@@ -7,11 +10,15 @@ class Bubble {
     this.y = y;
   }
 
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, bubbleRadius, 0, 2 * Math.PI, false);
-    ctx.fillStyle = 'red';
-    ctx.fill();
+  draw(isHead) {
+    if(isHead) {
+      ctx.drawImage(icon, this.x - bubbleRadius, this.y - bubbleRadius, 2 * bubbleRadius, 2 * bubbleRadius);
+    } else {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, bubbleRadius, 0, 2 * Math.PI, false);
+      ctx.fillStyle = '#ffb400';
+      ctx.fill();
+    }
   }
 
   move(direction) {

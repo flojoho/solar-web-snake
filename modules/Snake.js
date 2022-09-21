@@ -1,4 +1,4 @@
-import { canvas, bubbleDistance, wallDisplacement, bubbleRadius } from './globals.js';
+import { canvas, bubbleDistance, bubbleRadius } from './globals.js';
 import Bubble from './Bubble.js';
 
 class Snake {
@@ -13,9 +13,10 @@ class Snake {
   }
 
   draw() {
-    for(const bubble of this.bubbles) {
+    this.bubbles.forEach((bubble, index) => {
+      if(index === 0) return bubble.draw(true);
       bubble.draw();
-    }
+    });
   }
 
   move() {
@@ -56,10 +57,10 @@ class Snake {
 
   checkWallCollision() {
     const head = this.bubbles[0];
-    if(head.x < wallDisplacement + bubbleRadius) return true;
-    if(head.x > canvas.width - wallDisplacement - bubbleRadius) return true;
-    if(head.y < wallDisplacement + bubbleRadius) return true;
-    if(head.y > canvas.height - wallDisplacement - bubbleRadius) return true;
+    if(head.x < bubbleRadius) return true;
+    if(head.x > canvas.width - bubbleRadius) return true;
+    if(head.y < bubbleRadius) return true;
+    if(head.y > canvas.height - bubbleRadius) return true;
     return false;
   }
 }
