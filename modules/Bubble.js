@@ -2,7 +2,7 @@ import { bubbleRadius, snakeSpeed } from './globals.js';
 import { ctx }  from './globals.js';
 
 const icon = new Image();
-icon.src = '../fronius_favicon.svg';
+icon.src = '../img/fronius_favicon.svg';
 
 class Bubble {
   constructor(x, y) {
