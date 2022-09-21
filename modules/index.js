@@ -1,12 +1,15 @@
 import Snake from './Snake.js';
 import Food from './Food.js';
 import { ctx, canvas, fps, bubbleRadius } from './globals.js';
+import { updateScore, resetScore } from './scores.js';
 
 let snake;
 const food = new Food();
 
 const reset = () => {
+  resetScore();
   snake = new Snake(200, 200);
+  updateScore(snake.bubbles.length);
 }
 reset();
 
@@ -27,6 +30,7 @@ setInterval(() => {
   const snakeHead = snake.bubbles[0];
   if((food.x - snakeHead.x) ** 2 + (food.y - snakeHead.y) ** 2 < (2 * bubbleRadius) ** 2) {
     snake.grow();
+    updateScore(snake.bubbles.length);
     food.changePosition();
   }
 
